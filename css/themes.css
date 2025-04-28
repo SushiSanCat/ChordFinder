@@ -1,0 +1,426 @@
+:root {
+    --primary: #4a8cff;
+    --secondary: #6aa1ff;
+    --bg: rgba(15, 15, 15, 0.9);
+    --text: #f0f5ff;
+    --card-bg: rgba(30, 30, 30, 0.6);
+    --card-border: rgba(255, 255, 255, 0.1);
+    --card-hover: rgba(50, 50, 50, 0.8);
+    --glass-effect: blur(20px) saturate(150%);
+    --highlight: rgba(74, 140, 255, 0.25);
+}
+
+body {
+    font-family: 'Segoe UI', system-ui, -apple-system, sans-serif;
+    background: var(--bg);
+    color: var(--text);
+    margin: 0;
+    padding: 0;
+    min-height: 100vh;
+    backdrop-filter: var(--glass-effect);
+    -webkit-backdrop-filter: var(--glass-effect);
+}
+
+.container {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 20px;
+}
+
+header {
+    text-align: center;
+    padding: 30px 0;
+    margin-bottom: 30px;
+    background: rgba(15, 25, 40, 0.4);
+    border-radius: 10px;
+    border: 1px solid rgba(255, 255, 255, 0.08);
+    box-shadow: 0 8px 32px rgba(0, 0, 20, 0.3);
+}
+
+h1 {
+    color: var(--primary);
+    margin: 0;
+    font-size: 2.5rem;
+    text-shadow: 0 2px 8px rgba(0, 0, 0, 0.2);
+    background: linear-gradient(to right, var(--primary), var(--secondary));
+    -webkit-background-clip: text;
+    background-clip: text;
+    color: transparent;
+}
+
+.search-container {
+    margin: 30px 0;
+    display: flex;
+    gap: 10px;
+}
+
+input, select {
+    padding: 12px 15px;
+    background: rgba(40, 60, 90, 0.4);
+    border: 1px solid rgba(255, 255, 255, 0.1);
+    color: var(--text);
+    border-radius: 8px;
+    flex: 1;
+    font-size: 1rem;
+    transition: all 0.25s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+input:focus, select:focus {
+    outline: none;
+    border-color: var(--primary);
+    box-shadow: 0 0 0 2px var(--highlight);
+}
+
+button {
+    padding: 12px 25px;
+    background: linear-gradient(135deg, var(--primary), var(--secondary));
+    color: white;
+    border: none;
+    border-radius: 8px;
+    cursor: pointer;
+    transition: all 0.25s cubic-bezier(0.4, 0, 0.2, 1);
+    font-weight: 600;
+    box-shadow: 0 4px 16px rgba(74, 140, 255, 0.25);
+}
+
+button:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 6px 20px rgba(74, 140, 255, 0.4);
+}
+
+.filters {
+    display: flex;
+    gap: 15px;
+    margin-bottom: 30px;
+}
+
+.filter-group {
+    flex: 1;
+}
+
+label {
+    display: block;
+    margin-bottom: 8px;
+    font-weight: 500;
+    color: #ccc;
+}
+
+.chords-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
+    gap: 25px;
+    margin-bottom: 40px;
+}
+
+.chord-card {
+    background: var(--card-bg);
+    border-radius: 12px;
+    padding: 20px;
+    border: 1px solid var(--card-border);
+    transition: all 0.25s cubic-bezier(0.4, 0, 0.2, 1);
+    box-shadow: 0 8px 32px rgba(0, 10, 30, 0.2);
+    backdrop-filter: var(--glass-effect);
+    -webkit-backdrop-filter: var(--glass-effect);
+}
+
+.chord-card:hover {
+    transform: translateY(-5px);
+    background: var(--card-hover);
+    box-shadow: 0 12px 24px rgba(0, 0, 0, 0.2);
+}
+
+.chord-name {
+    font-size: 1.5rem;
+    font-weight: bold;
+    color: var(--primary);
+    margin-bottom: 10px;
+}
+
+.chord-difficulty {
+    display: inline-block;
+    padding: 3px 8px;
+    border-radius: 12px;
+    font-size: 0.8rem;
+    margin-bottom: 10px;
+}
+
+.difficulty-easy { background: #2e7d32; }
+.difficulty-medium { background: #f9a825; color: #333; }
+.difficulty-hard { background: #c62828; }
+
+.fretboard {
+    display: flex;
+    flex-direction: column;
+    margin: 15px 0;
+}
+
+.string {
+    display: flex;
+    height: 30px;
+    position: relative;
+}
+
+.string::before {
+    content: '';
+    position: absolute;
+    left: 0;
+    right: 0;
+    height: 2px;
+    background: var(--text);
+    top: 50%;
+    transform: translateY(-50%);
+}
+
+.fret {
+    flex: 1;
+    position: relative;
+    border-right: 1px solid var(--card-border);
+}
+
+.fret:last-child {
+    border-right: none;
+}
+
+.finger {
+    position: absolute;
+    width: 20px;
+    height: 20px;
+    background: var(--primary);
+    border-radius: 50%;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 0.7rem;
+}
+
+.open {
+    position: absolute;
+    top: 50%;
+    left: 10px;
+    transform: translateY(-50%);
+}
+
+.muted {
+    position: absolute;
+    top: 50%;
+    left: 10px;
+    transform: translateY(-50%);
+    font-size: 0.9rem;
+}
+
+.chord-position {
+    font-size: 0.9rem;
+    color: #aaa;
+}
+
+.tutorial-section {
+    margin-top: 20px;
+}
+
+.tutorial-btn {
+    background: none;
+    border: none;
+    padding: 10px 20px;
+    font-size: 1rem;
+    cursor: pointer;
+}
+
+.tutorial-content {
+    display: none;
+    margin-top: 10px;
+    padding: 20px;
+    background: var(--card-bg);
+    border-radius: 10px;
+    border: 1px solid var(--card-border);
+    box-shadow: 0 8px 32px rgba(0, 10, 30, 0.2);
+}
+
+.utility-buttons {
+    margin-top: 20px;
+    display: flex;
+    gap: 10px;
+}
+
+/* Tutorial Section */
+.tutorial-section {
+    margin: 20px auto;
+    max-width: 800px;
+}
+
+.tutorial-btn {
+    background: rgba(255, 255, 255, 0.1) !important;
+    border: 1px solid var(--primary) !important;
+    margin-bottom: 10px;
+}
+
+.tutorial-content {
+    display: none;
+    background: rgba(20, 40, 70, 0.6);
+    padding: 20px;
+    border-radius: 8px;
+    margin-top: 10px;
+    border: 1px solid var(--card-border);
+}
+
+.tutorial-content ol {
+    text-align: left;
+    padding-left: 20px;
+}
+
+/* Utility Buttons */
+.utility-buttons {
+    display: flex;
+    gap: 10px;
+    justify-content: center;
+    margin: 15px 0;
+}
+
+/* Favorite Button */
+.favorite-btn {
+    position: absolute;
+    top: 10px;
+    right: 10px;
+    background: none;
+    border: none;
+    font-size: 1.5rem;
+    cursor: pointer;
+    color: #ccc;
+    transition: all 0.2s;
+}
+
+.favorite-btn:hover {
+    transform: scale(1.2);
+}
+
+.favorite-btn.active {
+    color: gold;
+    text-shadow: 0 0 8px rgba(255, 215, 0, 0.5);
+}
+
+.favorites-btn {
+    background: linear-gradient(135deg, #f7dc6f, #ffd700);
+    color: black;
+}
+
+.all-chords-btn {
+    background: linear-gradient(135deg, #4a8cff, #6aa1ff);
+    color: white;
+}
+
+@media (max-width: 768px) {
+    .filters {
+        flex-direction: column;
+    }
+    
+    .chords-grid {
+        grid-template-columns: 1fr;
+    }
+}
+
+.diagram-example {
+    margin: 20px 0;
+    padding: 20px;
+    background: var(--card-bg);
+    border: 1px solid var(--card-border);
+    border-radius: 10px;
+}
+
+.string-names {
+    display: flex;
+    justify-content: space-between;
+    margin-bottom: 10px;
+}
+
+.string-names span {
+    font-size: 0.8rem;
+    color: #ccc;
+}
+
+.fret-numbers {
+    display: flex;
+    justify-content: space-between;
+    margin-bottom: 10px;
+}
+
+.fret-numbers span {
+    font-size: 0.8rem;
+    color: #ccc;
+}
+
+.tutorial-list {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+}
+
+.tutorial-list li {
+    margin-bottom: 10px;
+}
+
+.finger-reference {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 10px;
+    margin-top: 10px;
+}
+
+.finger-reference span {
+    font-size: 0.8rem;
+    color: #ccc;
+}
+
+.diagram-guide {
+    display: flex;
+    align-items: center;
+    gap: 20px;
+}
+
+.diagram-img {
+    width: 100%;
+    height: 150px;
+    object-fit: cover;
+    border-radius: 10px;
+}
+
+.legend {
+    margin-top: 20px;
+}
+
+.legend p {
+    margin-bottom: 10px;
+}
+
+.finger-legend {
+    display: flex;
+    gap: 10px;
+}
+
+.finger-legend span {
+    font-size: 0.8rem;
+    color: #ccc;
+}
+/* About button styling */
+.about-btn {
+    background: linear-gradient(135deg, var(--primary), var(--secondary));
+    color: #fff;
+    border: none;
+    border-radius: 8px;
+    padding: 10px 22px;
+    text-decoration: none;
+    font-weight: 600;
+    font-size: 1rem;
+    position: absolute;
+    top: 24px;
+    right: 32px;
+    box-shadow: 0 4px 16px rgba(74, 140, 255, 0.18);
+    transition: background 0.2s, box-shadow 0.2s;
+    z-index: 2;
+}
+.about-btn:hover {
+    background: linear-gradient(135deg, var(--secondary), var(--primary));
+    color: #fff;
+    box-shadow: 0 8px 24px rgba(74, 140, 255, 0.28);
+}

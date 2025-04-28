@@ -1,0 +1,170 @@
+body {
+    font-family: 'Segoe UI', system-ui, -apple-system, sans-serif;
+    background: rgba(15, 15, 15, 0.9);
+    color: #f0f5ff;
+    margin: 0;
+    padding: 0;
+    min-height: 100vh;
+    display: flex;
+    flex-direction: column;
+    backdrop-filter: blur(20px) saturate(150%);
+    -webkit-backdrop-filter: blur(20px) saturate(150%);
+}
+.container {
+    max-width: 800px;
+    margin: 40px auto;
+    padding: 30px;
+    background: rgba(30, 30, 30, 0.6);
+    border-radius: 12px;
+    border: 1px solid rgba(255,255,255,0.1);
+    box-shadow: 0 8px 32px rgba(0,0,0,0.5);
+}
+h1 {
+    color: #4a8cff;
+    margin-bottom: 10px;
+}
+h2 {
+    color: #6aa1ff;
+    margin-top: 32px;
+}
+a {
+    color: #4a8cff;
+    text-decoration: underline;
+}
+.back-btn {
+    display: inline-block;
+    margin-bottom: 20px;
+    padding: 10px 20px;
+    background: linear-gradient(135deg, #4a8cff, #6aa1ff);
+    color: #fff;
+    border: none;
+    border-radius: 8px;
+    text-decoration: none;
+    font-weight: 600;
+    transition: background 0.2s, transform 0.2s;
+}
+.back-btn:hover {
+    background: linear-gradient(135deg, #6aa1ff, #4a8cff);
+    transform: scale(1.05);
+}
+ul {
+    margin: 0 0 20px 20px;
+}
+ul li {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    background: rgba(255, 255, 255, 0.05);
+    padding: 10px;
+    border-radius: 8px;
+    margin-bottom: 10px;
+}
+.contact {
+    margin-top: 24px;
+    font-size: 1.1rem;
+}
+.contact a {
+    display: inline-flex;
+    align-items: center;
+    gap: 5px;
+}
+.contact a i {
+    color: #4a8cff;
+}
+
+/* Redesigned the roadmap section to match the provided example */
+.roadmap {
+    position: relative;
+    margin: 40px 0;
+    padding: 40px;
+    background: linear-gradient(135deg, #1a1a1a, #2a2a2a);
+    border-radius: 16px;
+    box-shadow: 0 8px 16px rgba(0, 0, 0, 0.3);
+    overflow: hidden;
+}
+.roadmap h2 {
+    color: #00ff88;
+    text-align: center;
+    margin-bottom: 40px;
+    font-size: 2rem;
+}
+.roadmap::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 50%;
+    width: 6px;
+    height: 100%;
+    background: linear-gradient(180deg, #00ff88, #006644);
+    transform: translateX(-50%);
+    z-index: 1;
+}
+.checkpoint {
+    position: relative;
+    margin: 40px 0;
+    padding: 20px;
+    background: rgba(255, 255, 255, 0.1);
+    border-radius: 8px;
+    width: 300px;
+    color: #fff;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+    z-index: 2;
+    transition: transform 0.3s, box-shadow 0.3s;
+}
+.checkpoint:hover {
+    transform: scale(1.05);
+    box-shadow: 0 8px 16px rgba(0, 0, 0, 0.4);
+}
+.checkpoint:nth-child(odd) {
+    left: calc(50% - 360px);
+}
+.checkpoint:nth-child(even) {
+    left: calc(50% + 60px);
+}
+.checkpoint h3 {
+    color: #00ff88;
+    margin-bottom: 10px;
+    font-size: 1.2rem;
+}
+.checkpoint p {
+    font-size: 1rem;
+    color: #d1d1e0;
+    margin-bottom: 10px;
+}
+.checkpoint .status {
+    display: inline-block;
+    padding: 5px 10px;
+    background: #006644;
+    color: #00ff88;
+    border-radius: 4px;
+    font-size: 0.9rem;
+    font-weight: bold;
+}
+.checkpoint:not(:last-child)::after {
+    content: '';
+    position: absolute;
+    top: 50%;
+    right: -30px;
+    width: 60px;
+    height: 4px;
+    background: linear-gradient(90deg, #00ff88, #006644);
+    border-radius: 50px;
+    transform: translateY(-50%);
+    z-index: -1;
+}
+.checkpoint:nth-child(even)::after {
+    right: auto;
+    left: -30px;
+    transform: translateY(-50%) rotate(180deg);
+}
+
+/* Adjust title styles to align with icons */
+h1, h2 {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+}
+h1 i, h2 i {
+    color: #4a8cff;
+    font-size: 1.5rem;
+}

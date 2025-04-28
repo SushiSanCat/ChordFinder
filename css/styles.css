@@ -1,0 +1,199 @@
+/* Additional styles can be added here */
+/* Update to a dark theme inspired by Windows 11 */
+body {
+    background: linear-gradient(135deg, #1a1a1a, #2e2e2e);
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    color: #e0e0e0;
+    margin: 0;
+    padding: 0;
+}
+
+.favorites-btn {
+    background: #ffcc00; /* Yellow for favorites */
+    color: black;
+}
+
+.favorites-btn.show-all {
+    background: #007bff; /* Blue for all chords */
+    color: white;
+}
+
+.tutorial-content {
+    max-width: 600px;
+    margin: 0 auto;
+    line-height: 1.6;
+}
+
+.tutorial-content p {
+    margin-bottom: 10px;
+}
+
+.diagram-example {
+    background: #f5f5f5;
+    padding: 15px;
+    border-radius: 5px;
+    margin-bottom: 15px;
+    text-align: center;
+}
+
+.diagram-guide {
+    background: #2a2a2a;
+    padding: 15px;
+    border-radius: 8px;
+    margin-bottom: 20px;
+}
+
+.string-names {
+    display: flex;
+    justify-content: space-between;
+    color: #fff;
+    margin-bottom: 10px;
+}
+
+.fret-numbers {
+    display: flex;
+    justify-content: space-around;
+}
+
+.finger-reference {
+    display: flex;
+    justify-content: space-between;
+    margin-top: 5px;
+    font-size: 0.9em;
+}
+
+.diagram-img {
+    width: 100%;
+    max-width: 300px;
+    display: block;
+    margin: 0 auto;
+    border: 1px solid #444;
+}
+
+.legend {
+    background: #f8f8f8;
+    padding: 15px;
+    border-radius: 8px;
+    font-size: 0.9em;
+}
+
+.finger-legend {
+    display: flex;
+    gap: 15px;
+    margin: 10px 0;
+}
+
+.container {
+    backdrop-filter: blur(12px);
+    background: rgba(40, 40, 40, 0.8);
+    border: 1px solid rgba(255, 255, 255, 0.1);
+    border-radius: 16px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+    padding: 20px;
+    margin: 20px auto;
+    max-width: 1200px;
+}
+
+header {
+    text-align: center;
+    padding: 20px;
+    backdrop-filter: blur(12px);
+    background: rgba(40, 40, 40, 0.8);
+    border: 1px solid rgba(255, 255, 255, 0.1);
+    border-radius: 16px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+}
+
+.about-btn {
+    background: linear-gradient(135deg, #3a3a3a, #4a4a4a);
+    color: #e0e0e0;
+    border: 1px solid rgba(255, 255, 255, 0.1);
+    border-radius: 12px;
+    text-decoration: none;
+    font-weight: 600;
+    transition: background 0.2s, box-shadow 0.2s;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+}
+
+.about-btn:hover {
+    background: linear-gradient(135deg, #4a4a4a, #3a3a3a);
+    box-shadow: 0 6px 12px rgba(0, 0, 0, 0.3);
+}
+
+.tutorial-section, .utility-buttons, .search-container, .filters {
+    backdrop-filter: blur(12px);
+    background: rgba(40, 40, 40, 0.8);
+    border: 1px solid rgba(255, 255, 255, 0.1);
+    border-radius: 16px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+    padding: 20px;
+    margin: 20px 0;
+}
+
+button {
+    background: linear-gradient(135deg, #3a3a3a, #4a4a4a);
+    color: #e0e0e0;
+    border: none;
+    border-radius: 12px;
+    padding: 10px 20px;
+    font-weight: bold;
+    cursor: pointer;
+    transition: background 0.2s, box-shadow 0.2s;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+}
+
+button:hover {
+    background: linear-gradient(135deg, #4a4a4a, #3a3a3a);
+    box-shadow: 0 6px 12px rgba(0, 0, 0, 0.3);
+}
+
+input, select {
+    backdrop-filter: blur(12px);
+    background: rgba(40, 40, 40, 0.8);
+    border: 1px solid rgba(255, 255, 255, 0.1);
+    border-radius: 12px;
+    padding: 10px;
+    color: #e0e0e0;
+    font-size: 16px;
+    margin: 5px 0;
+    width: 100%;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+}
+
+input::placeholder {
+    color: rgba(255, 255, 255, 0.5);
+}
+
+.chords-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+    gap: 20px;
+    backdrop-filter: blur(12px);
+    background: rgba(40, 40, 40, 0.8);
+    border: 1px solid rgba(255, 255, 255, 0.1);
+    border-radius: 16px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+    padding: 20px;
+}
+
+/* Center the tutorial button */
+.tutorial-btn {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    background: linear-gradient(135deg, #3a3a3a, #4a4a4a);
+    color: #e0e0e0;
+    border: none;
+    border-radius: 12px;
+    padding: 10px 20px;
+    font-weight: bold;
+    cursor: pointer;
+    transition: background 0.2s, box-shadow 0.2s;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+}
+
+.tutorial-btn:hover {
+    background: linear-gradient(135deg, #4a4a4a, #3a3a3a);
+    box-shadow: 0 6px 12px rgba(0, 0, 0, 0.3);
+}
